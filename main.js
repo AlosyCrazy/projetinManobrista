@@ -2,6 +2,9 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 var larguraCar = 75;
 var alturaCar = 100;
+var novaImgWpp;
+var novaImgVrumVrum;
+
 
 backgroundImage = "parkingLot.jpg";
 greencarImage = "car2.png";
@@ -10,11 +13,11 @@ var Xcar = 5;
 var Ycar = 225;
 
 function add() {
-	var novaImgWpp = new Image();
+	novaImgWpp = new Image();
 	novaImgWpp.onload = uploadBackground;
 	novaImgWpp.src = backgroundImage;
 
-	var novaImgVrumVrum = new Image();
+	novaImgVrumVrum = new Image();
 	novaImgVrumVrum.onload = uploadGreenCar;
 	novaImgVrumVrum.src = greencarImage;
 }
@@ -63,7 +66,7 @@ function myKeyDown(e)
 
 function up()
 {
-	if(Ycar<=0){
+	if(Ycar>=0){
 		Ycar = Ycar-10;
 		console.log("YOU DIDNT PRESSED THE UP KEY DID YOU?!");
 		uploadBackground();
@@ -82,7 +85,7 @@ function down()
 
 function left()
 {
-	if(Xcar<=0){
+	if(Xcar>=0){
 		Xcar = Xcar-10;
 		uploadBackground();
 		uploadGreenCar();
